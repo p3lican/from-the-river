@@ -42,7 +42,6 @@ export default {
 
 var cors = 'https://morning-hollows-40780.herokuapp.com/'
 
-alert('hi')
 this.loading=true;
 var self = this
       var latestAudio = cors + "https://api.nba.net/2/pelicans/article/?count=16&verbose=true&freeform=Audio"

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" data-server-rendered="true">
   <mainnav></mainnav>
 
     <h1>Andy's {{ msg }}</h1>

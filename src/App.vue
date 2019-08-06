@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+  <mainnav></mainnav>
+
     <h1>Andy's {{ msg }}</h1>
     <p>
       <router-link to="/">Home</router-link> |
@@ -12,8 +13,10 @@
 </template>
 
 <script>
+import mainnav from './components/mainnav.vue'
 export default {
   name: 'app',
+  components: {mainnav},
   data() {
     return {
       msg: 'Welcome to your prerender-spa-plugin vue-cli 3 demo app!',
@@ -23,13 +26,19 @@ export default {
 </script>
 
 <style>
+
+body {
+    background-color: #000;
+    color:#fff;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
+  margin-top: 0px;
+
 }
 
 h1, h2 {

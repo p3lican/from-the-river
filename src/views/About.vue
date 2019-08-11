@@ -1,7 +1,14 @@
 <template>
 <div class="about-wrapper">
   <h2>About Page</h2>
-  <videolist></videolist>
+
+  <videolist>
+    
+
+
+    
+  </videolist>
+
   </div>
 </template>
 

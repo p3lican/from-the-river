@@ -1,23 +1,27 @@
 <template>
   <div class="videolist-wrapper">
-  <div v-if="loading">loading</div>
-  <div v-else>
+    <div v-if="loading">loading</div>
+    <div v-else>
 
-  <div v-for="video in gs2Data">
+    <div v-for="video in gs2Data">
+    <img class="list-image" :src="'https://img.youtube.com/vi/'+video.gsx$videourl.$t+'/hqdefault.jpg'" @click="videoSelected(video.gsx$videotitle.$t, video.gsx$videocategory.$t, video.gsx$videodescription.$t, video.gsx$videourl.$t, video.gsx$videosummary.$t, video.gsx$videolongdescription.$t)"><br/>
+    {{video.gsx$videotitle.$t}}<br/>
+    {{video.gsx$videocategory.$t}}<br/><br/>
+    </div>
 
-  {{video.gsx$videotitle.$t}}<br/>
-  {{video.gsx$videocategory.$t}}<br/><br/>
-  {{video.gsx$videodescription.$t}}<br/>
-  <img :src="'https://img.youtube.com/vi/'+video.gsx$videourl.$t+'/hqdefault.jpg'">
+    </div>
+    <div class="the-popup-video-wrapper hidden">
+    <div class="popup-video-close-top" aria-label="Close Video" @click="videoClosed"><i>CLOSE</i></div>
+      <div class="the-popup-video">
 
-  </div>
-
-<div class="o-video">
-  <iframe src="https://www.youtube.com/embed/Kch8n4tcOZQ" allowfullscreen></iframe>
-</div>
-
-
-  </div>
+      </div>
+      <div class="popup-video-info-wrapper">
+        <div class="popup-video-player-title"></div>
+        <div class="popup-video-player-category"></div>
+        <div class="popup-video-player-summary"></div>
+        <div class="popup-video-player-long-description"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,6 +42,50 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+
+    videoClosed: () => {
+      console.log('VIDEEEEEEOOOO CLOSED')
+      var theVideo =  document.querySelector('.the-popup-video>iframe');
+      var videoOverlay = document.getElementsByClassName("the-popup-video-wrapper")[0]
+      videoOverlay.classList.add("hidden");
+      theVideo.parentNode.removeChild(theVideo)
+      document.body.classList.remove("nooverflow");
+    },
+
+    videoSelected: (videoTitle, videoCat, videoDesc, videoURL, videoSummary, videoLongDesc) => {
+
+      document.body.classList.add("nooverflow");
+
+
+
+      var poopup = document.querySelector('div.the-popup-video-wrapper');
+      var popupVideoHolder = document.querySelector('div.the-popup-video');
+      var popupTitle = document.querySelector('div.popup-video-player-title');
+      popupTitle.innerHTML = videoTitle
+      var popupTeaser = document.querySelector('div.popup-video-player-teaser');
+      var popupSummary = document.querySelector('.popup-video-player-summary');
+      var popupCat = document.querySelector('.popup-video-player-category');
+      var popupLongDesc = document.querySelector('.popup-video-player-long-description');
+
+      console.log(videoSummary, 'llllllllllllllllllllooooooooooooooooolllllllllllllllllllllll')
+      popupSummary.innerHTML= videoSummary
+      popupLongDesc.innerHTML = videoLongDesc
+      popupCat.innerHTML = videoCat
+
+      poopup.classList.remove("hidden");
+      console.log(videoURL, 'this video URL')
+       var videoIframe = document.createElement("iframe");
+       videoIframe.src = 'https://www.youtube.com/embed/' + videoURL;
+       videoIframe.ClassName = "theVIDD";
+       videoIframe.setAttribute('allowfullscreen', '')
+
+
+   document.querySelector(".the-popup-video").appendChild(videoIframe);
+
+    }
+  },
+
   mounted: function () {
 
 var cors = 'https://morning-hollows-40780.herokuapp.com/'
@@ -88,24 +136,217 @@ self.gs2Data = gs2Res.data.feed.entry
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss">
 
+
+.hidden {
+  display:none!important;
+}
+
+.popup-video-close-top {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 9;
+    cursor: pointer;
+    background: #f9f9f9;
+    border-radius: 7px;
+    padding: 5px 10px;
+}
+
+.popup-video-close-top > i {
+    color: black;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.list-image {
+  width:100%;
+  display:block;
+  max-width:480px;
+  margin: 0 auto;
+}
 
 
 .o-video {
-  width: 100%;
-  height: 0;
-  position: relative;
-  padding-top: 56.25%; /* 9 / 16 * 100 */
+    height: 100%;
 }
-.o-video > iframe {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 0;
+
+
+
+
+.the-popup-video > iframe {
+    width: 1280px;
+    height: 720px;
+        border: none;
 }
+
+
+
+
+  .the-popup-video-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    padding-top: 40px;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.97);
+    padding: 0px 0px;
+    text-align: left;
+    color: white;
+}
+.the-popup-video-inner {
+    height: 100%;
+    width: 100%;
+}
+.the-popup-video {
+    width: 100%;
+    padding: 20px;
+}
+
+.popup-video-info-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+.popup-video-player-title {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+    line-height: 48px;
+    flex: 1;
+}
+
+.popup-video-player-category {
+    border-top: 3px solid black;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #9c9c9c;
+}
+
+.popup-video-player-teaser {
+    text-align: left;
+    font-size: 24px;
+    line-height:32px;
+    flex: 1;
+}
+
+.popup-video-player-summary {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+
+.popup-video-player-long-description {
+    font-size: 12px;
+    line-height:16px;
+    margin-top: 16px;
+}
+
+
+@media (max-width:1750px) {
+.the-popup-video > iframe {
+    width: 1024px;
+    height: 575px;
+}
+}
+
+@media (max-width:1500px) {
+
+.popup-video-info-wrapper {
+    max-width: 1034px;
+}
+.popup-video-player-title {
+    font-size: 27px;
+    line-height: 36px;
+    margin-bottom: 10px;
+}
+.popup-video-player-teaser {
+    text-align: left;
+    font-size: 18px;
+    line-height:24px;
+    flex: 1;
+}
+
+}
+
+@media (max-width:1450px) {
+.the-popup-video > iframe {
+    width: 840px;
+    height: 480px;
+}
+.popup-video-info-wrapper {
+    max-width: 730px;
+    flex-direction: column;
+    background: white;
+    color: black;
+}
+}
+
+
+
+
+@media (max-width:1279px) {
+  .the-popup-video {
+    background: black;
+}
+
+.the-popup-video > iframe {
+    width: 640px;
+    height: 380px;
+    margin: 0 auto;
+    display: block;
+}
+.popup-video-info-wrapper {
+    max-width: 650px;
+}
+
+  .the-popup-video-wrapper {
+    flex-direction: column;
+    background: white;
+    color: black;
+    }
+}
+
+@media (max-width:720px) {
+.the-popup-video > iframe {
+    width: 100%;
+    height: 400px;
+}
+.popup-video-info-wrapper {
+    width: 90%;
+    overflow-y: scroll;
+}
+}
+
+@media (max-width:550px) {
+  .the-popup-video {
+    padding:20px;
+  }
+.the-popup-video > iframe {
+    width: 100%;
+    height: 230px;
+}
+.popup-video-player-long-description {
+    padding-bottom: 60px;
+}
+}
+
+
 
 
 </style>

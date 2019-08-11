@@ -41,6 +41,11 @@ body {
 
 }
 
+.nooverflow {
+  overflow-y:hidden;
+}
+
+
 h1, h2 {
   font-weight: normal;
 }

@@ -4,7 +4,7 @@
     <div v-else>
 
     <div v-for="video in gs2Data">
-    <img class="list-image" :src="'https://img.youtube.com/vi/'+video.gsx$videourl.$t+'/hqdefault.jpg'" @click="videoSelected(video.gsx$videotitle.$t, video.gsx$videocategory.$t, video.gsx$videodescription.$t, video.gsx$videourl.$t, video.gsx$videosummary.$t, video.gsx$videolongdescription.$t)"><br/>
+    <img :alt="video.gsx$videotitle.$t" class="list-image" :src="'https://img.youtube.com/vi/'+video.gsx$videourl.$t+'/hqdefault.jpg'" @click="videoSelected(video.gsx$videotitle.$t, video.gsx$videocategory.$t, video.gsx$videodescription.$t, video.gsx$videourl.$t, video.gsx$videosummary.$t, video.gsx$videolongdescription.$t)"><br/>
     {{video.gsx$videotitle.$t}}<br/>
     {{video.gsx$videocategory.$t}}<br/><br/>
     </div>

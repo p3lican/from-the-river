@@ -3,8 +3,6 @@
   <h2>OUR WORK</h2>
 
   <videolist>
-    
-
 
 
   </videolist>
@@ -14,13 +12,14 @@
 
 
 <script>
-import videolist from '../components/videolist.vue'
+import videolist from '../components/videolist.vue';
+
 export default {
   name: 'app',
-  components: {videolist},
+  components: { videolist },
   data() {
     return {
-  
+
     };
   },
 };

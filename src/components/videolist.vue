@@ -1,7 +1,7 @@
 <template>
   <div class="videolist-wrapper">
     <div v-if="loading">loading</div>
-    <div v-else>
+    <div v-else class="all-videos-wrapper">
 
     <div v-for="video in gs2Data">
     <img :alt="video.gsx$videotitle.$t" class="list-image" :src="'https://img.youtube.com/vi/'+video.gsx$videourl.$t+'/hqdefault.jpg'" @click="videoSelected(video.gsx$videotitle.$t, video.gsx$videocategory.$t, video.gsx$videodescription.$t, video.gsx$videourl.$t, video.gsx$videosummary.$t, video.gsx$videolongdescription.$t)"><br/>
@@ -27,17 +27,17 @@
 
 <script>
 
-import axios from 'axios'
+import axios from 'axios';
 
 
 export default {
   name: 'videolist',
-  data: function () {
+  data() {
     return {
       loading: false,
       gs1Data: {},
-      gs2Data: {}
-    }
+      gs2Data: {},
+    };
   },
   props: {
     msg: String,
@@ -45,91 +45,80 @@ export default {
   methods: {
 
     videoClosed: () => {
-      console.log('VIDEEEEEEOOOO CLOSED')
-      var theVideo =  document.querySelector('.the-popup-video>iframe');
-      var videoOverlay = document.getElementsByClassName("the-popup-video-wrapper")[0]
-      videoOverlay.classList.add("hidden");
-      theVideo.parentNode.removeChild(theVideo)
-      document.body.classList.remove("nooverflow");
+      console.log('VIDEEEEEEOOOO CLOSED');
+      const theVideo = document.querySelector('.the-popup-video>iframe');
+      const videoOverlay = document.getElementsByClassName('the-popup-video-wrapper')[0];
+      videoOverlay.classList.add('hidden');
+      theVideo.parentNode.removeChild(theVideo);
+      document.body.classList.remove('nooverflow');
     },
 
     videoSelected: (videoTitle, videoCat, videoDesc, videoURL, videoSummary, videoLongDesc) => {
-
-      document.body.classList.add("nooverflow");
-
+      document.body.classList.add('nooverflow');
 
 
-      var poopup = document.querySelector('div.the-popup-video-wrapper');
-      var popupVideoHolder = document.querySelector('div.the-popup-video');
-      var popupTitle = document.querySelector('div.popup-video-player-title');
-      popupTitle.innerHTML = videoTitle
-      var popupTeaser = document.querySelector('div.popup-video-player-teaser');
-      var popupSummary = document.querySelector('.popup-video-player-summary');
-      var popupCat = document.querySelector('.popup-video-player-category');
-      var popupLongDesc = document.querySelector('.popup-video-player-long-description');
+      const poopup = document.querySelector('div.the-popup-video-wrapper');
+      const popupVideoHolder = document.querySelector('div.the-popup-video');
+      const popupTitle = document.querySelector('div.popup-video-player-title');
+      popupTitle.innerHTML = videoTitle;
+      const popupTeaser = document.querySelector('div.popup-video-player-teaser');
+      const popupSummary = document.querySelector('.popup-video-player-summary');
+      const popupCat = document.querySelector('.popup-video-player-category');
+      const popupLongDesc = document.querySelector('.popup-video-player-long-description');
 
-      console.log(videoSummary, 'llllllllllllllllllllooooooooooooooooolllllllllllllllllllllll')
-      popupSummary.innerHTML= videoSummary
-      popupLongDesc.innerHTML = videoLongDesc
-      popupCat.innerHTML = videoCat
+      console.log(videoSummary, 'llllllllllllllllllllooooooooooooooooolllllllllllllllllllllll');
+      popupSummary.innerHTML = videoSummary;
+      popupLongDesc.innerHTML = videoLongDesc;
+      popupCat.innerHTML = videoCat;
 
-      poopup.classList.remove("hidden");
-      console.log(videoURL, 'this video URL')
-       var videoIframe = document.createElement("iframe");
-       videoIframe.src = 'https://www.youtube.com/embed/' + videoURL;
-       videoIframe.ClassName = "theVIDD";
-       videoIframe.setAttribute('allowfullscreen', '')
+      poopup.classList.remove('hidden');
+      console.log(videoURL, 'this video URL');
+      const videoIframe = document.createElement('iframe');
+      videoIframe.src = `https://www.youtube.com/embed/${videoURL}`;
+      videoIframe.ClassName = 'theVIDD';
+      videoIframe.setAttribute('allowfullscreen', '');
 
 
-   document.querySelector(".the-popup-video").appendChild(videoIframe);
-
-    }
+      document.querySelector('.the-popup-video').appendChild(videoIframe);
+    },
   },
 
-  mounted: function () {
+  mounted() {
+    const cors = 'https://morning-hollows-40780.herokuapp.com/';
 
-var cors = 'https://morning-hollows-40780.herokuapp.com/'
-
-this.loading=true;
-var self = this
-      var latestAudio = cors + "https://api.nba.net/2/pelicans/article/?count=16&verbose=true&freeform=Audio"
-      var latestPodcasts = cors + "https://api.nba.net/2/pelicans/article/?count=16&verbose=true&freeform=Audio,%20podcast"
-      var gs1 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/1/public/values?alt=json'
-      var gs2 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/2/public/values?alt=json'
-
-
-      https://docs.google.com/spreadsheets/d/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/edit#gid=0
-
-       axios.all([
-          axios.get(latestAudio, { headers:{'accessToken':'internal|bb88df6b4c2244e78822812cecf1ee1b'}}),
-          axios.get(latestPodcasts, { headers:{'accessToken':'internal|bb88df6b4c2244e78822812cecf1ee1b'}}),
-          axios.get(gs1),
-          axios.get(gs2),
-        ])
-        .then(axios.spread(function(latestAudioRes, latestPodcastsRes, gs1Res, gs2Res) {
-        self.loading = false
-
-        self.latestAudioData = latestAudioRes.data.response.result
-        console.log(self.latestAudioData, "Latest Audio")
-           
-        self.latestPodcastsData = latestPodcastsRes.data.response.result
-        console.log(self.latestPodcastsData, "Latest Podcasts")
+    this.loading = true;
+    const self = this;
+    const latestAudio = `${cors}https://api.nba.net/2/pelicans/article/?count=16&verbose=true&freeform=Audio`;
+    const latestPodcasts = `${cors}https://api.nba.net/2/pelicans/article/?count=16&verbose=true&freeform=Audio,%20podcast`;
+    const gs1 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/1/public/values?alt=json';
+    const gs2 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/2/public/values?alt=json';
 
 
-self.gs1Data = gs1Res.data.feed.entry
-self.gs2Data = gs2Res.data.feed.entry
+    https:// docs.google.com/spreadsheets/d/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/edit#gid=0
 
-        console.log(self.gs1Data, "gs 1")
-        console.log(self.gs2Data, "gs 2")
-      }))
+    axios.all([
+      axios.get(latestAudio, { headers: { accessToken: 'internal|bb88df6b4c2244e78822812cecf1ee1b' } }),
+      axios.get(latestPodcasts, { headers: { accessToken: 'internal|bb88df6b4c2244e78822812cecf1ee1b' } }),
+      axios.get(gs1),
+      axios.get(gs2),
+    ])
+      .then(axios.spread((latestAudioRes, latestPodcastsRes, gs1Res, gs2Res) => {
+        self.loading = false;
+
+        self.latestAudioData = latestAudioRes.data.response.result;
+        console.log(self.latestAudioData, 'Latest Audio');
+
+        self.latestPodcastsData = latestPodcastsRes.data.response.result;
+        console.log(self.latestPodcastsData, 'Latest Podcasts');
 
 
+        self.gs1Data = gs1Res.data.feed.entry;
+        self.gs2Data = gs2Res.data.feed.entry;
 
-  
-      
-  }
-
-
+        console.log(self.gs1Data, 'gs 1');
+        console.log(self.gs2Data, 'gs 2');
+      }));
+  },
 
 
 };
@@ -160,11 +149,26 @@ self.gs2Data = gs2Res.data.feed.entry
     font-weight: 800;
 }
 
+.all-videos-wrapper {
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .list-image {
   width:100%;
   display:block;
   max-width:480px;
   margin: 0 auto;
+  transition-duration: 280ms;
+
+}
+
+.list-image:hover {
+    box-shadow: 0px 0px 0px 4px #fff;
+    transition-duration: 280ms;
+    cursor:pointer;
 }
 
 
@@ -173,15 +177,11 @@ self.gs2Data = gs2Res.data.feed.entry
 }
 
 
-
-
 .the-popup-video > iframe {
     width: 1280px;
     height: 720px;
         border: none;
 }
-
-
 
 
   .the-popup-video-wrapper {
@@ -330,10 +330,9 @@ self.gs2Data = gs2Res.data.feed.entry
     flex-direction: column;
     background: white;
     color: black;
+        overflow-y: scroll;
 }
 }
-
-
 
 
 @media (max-width:1279px) {
@@ -391,8 +390,6 @@ self.gs2Data = gs2Res.data.feed.entry
     padding-bottom: 60px;
 }
 }
-
-
 
 
 </style>

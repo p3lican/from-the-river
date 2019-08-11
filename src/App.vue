@@ -13,10 +13,11 @@
 </template>
 
 <script>
-import mainnav from './components/mainnav.vue'
+import mainnav from './components/mainnav.vue';
+
 export default {
   name: 'app',
-  components: {mainnav},
+  components: { mainnav },
   data() {
     return {
       msg: 'FROM THE RIVER FILMS',

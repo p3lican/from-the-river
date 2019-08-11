@@ -1,12 +1,12 @@
 <template>
 <div class="about-wrapper">
-  <h2>About Page</h2>
+  <h2>OUR WORK</h2>
 
   <videolist>
     
 
 
-    
+
   </videolist>
 
   </div>

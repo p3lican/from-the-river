@@ -217,6 +217,7 @@ self.gs2Data = gs2Res.data.feed.entry
     max-width: 1290px;
     margin: 0 auto;
     padding: 20px;
+    max-height: 600px;
 
 }
 
@@ -246,15 +247,51 @@ self.gs2Data = gs2Res.data.feed.entry
 }
 
 .popup-video-player-summary {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 21px;
+    line-height: 28px;
+}
+
+.popup-video-player-long-description {
+    font-size: 15px;
+    line-height:20px;
+    margin-top: 16px;
+
+
 }
 
 
-.popup-video-player-long-description {
-    font-size: 12px;
-    line-height:16px;
-    margin-top: 16px;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #d1d1d1;
+}
+::-webkit-scrollbar-track {
+  background: #353535;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #313131;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 

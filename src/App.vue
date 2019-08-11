@@ -2,7 +2,7 @@
   <div id="app" data-server-rendered="true">
   <mainnav></mainnav>
 
-    <h1>Andy's {{ msg }}</h1>
+    <h1>{{ msg }}</h1>
     <p>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -19,7 +19,7 @@ export default {
   components: {mainnav},
   data() {
     return {
-      msg: 'Welcome to your prerender-spa-plugin vue-cli 3 demo app!',
+      msg: 'FROM THE RIVER FILMS',
     };
   },
 };

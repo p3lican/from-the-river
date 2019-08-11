@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-  <img src="../assets/river-logo.png">
+  <img alt="From The River Films Logo" src="../assets/river-logo.png">
 
   </div>
 </template>

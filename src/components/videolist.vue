@@ -145,12 +145,12 @@ self.gs2Data = gs2Res.data.feed.entry
 
 .popup-video-close-top {
     position: fixed;
-    bottom: 5px;
-    right: 5px;
+    bottom: 8px;
+    right: 8px;
     z-index: 9;
     cursor: pointer;
     background: #f9f9f9;
-    border-radius: 7px;
+    border-radius: 0px;
     padding: 5px 10px;
 }
 
@@ -280,9 +280,8 @@ self.gs2Data = gs2Res.data.feed.entry
   background: #d1d1d1;
 }
 ::-webkit-scrollbar-track {
-  background: #353535;
+  background: #000;
   border: 0px none #ffffff;
-  border-radius: 50px;
 }
 ::-webkit-scrollbar-track:hover {
   background: #666666;
@@ -357,6 +356,16 @@ self.gs2Data = gs2Res.data.feed.entry
     background: white;
     color: black;
     }
+
+    .popup-video-close-top {
+    background: #000;
+}
+
+.popup-video-close-top > i {
+    color: #fff;
+}
+
+
 }
 
 @media (max-width:720px) {

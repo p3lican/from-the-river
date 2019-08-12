@@ -34,7 +34,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  margin-top: 120px;
+  margin-top: 70px;
 
 }
 
@@ -60,4 +60,21 @@ li {
 a {
   color: #fff;
 }
+
+h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 48px;
+    color: #fff;
+    text-decoration: none;
+    color: #fff;
+    display: inline-flex;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 </style>

@@ -141,6 +141,7 @@ export default {
     background: #f9f9f9;
     border-radius: 0px;
     padding: 5px 10px;
+        z-index: 4;
 }
 
 .popup-video-close-top > i {

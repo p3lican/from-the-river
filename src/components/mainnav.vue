@@ -1,7 +1,7 @@
 <template>
   <nav class="main-nav">
   <img alt="From The River Films Logo" src="../assets/river-logo.png">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">About</router-link> |
       <router-link to="/about">Films</router-link> |
       <router-link to="/engaging">Engaging</router-link> |
       <router-link to="/contact">Contact</router-link>
@@ -24,6 +24,7 @@ nav.main-nav {
     width: 100%;
     background: #fff;
     color:#000;
+    font-size: 32px;
     top: 0;
     display: flex;
     justify-content: center;
@@ -42,6 +43,9 @@ nav.main-nav > a {
     color:#000;
     text-decoration: none;
 }
+a.router-link-exact-active.router-link-active {
+    color: #d86d61!important;
+}
 
 @media (max-width:767px) {
   nav.main-nav > img {
@@ -49,9 +53,19 @@ nav.main-nav > a {
 }
 
 nav.main-nav > a {
-    max-width: 100px;
+    max-width: 90px;
     font-size: 12px;
 }
+
+nav.main-nav > a:first-of-type {
+    max-width: 70px;
+    font-size: 12px;
+}
+nav.main-nav > a:nth-of-type(2) {
+    max-width: 70px;
+    font-size: 12px;
+}
+
 }
 
 </style>

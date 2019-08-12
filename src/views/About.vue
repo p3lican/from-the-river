@@ -1,6 +1,6 @@
 <template>
 <div class="about-wrapper">
-  <h2>OUR WORK</h2>
+  <h2>FILMS</h2>
 
   <videolist>
 

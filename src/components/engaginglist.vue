@@ -18,7 +18,8 @@
 
          <div v-else-if="video.gsx$videotype.$t=='instagram'" class="instagram-item">
          <div class="media-wrapper">
-            <iframe :src="'https://www.instagram.com/p/'+video.gsx$instagramurl.$t+'/embed/'" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <iframe v-if="video.gsx$shortinstagram.$t=='TRUE'" :src="'https://www.instagram.com/p/'+video.gsx$instagramurl.$t+'/embed/'" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true" class="shortinstagram"></iframe>
+            <iframe v-else :src="'https://www.instagram.com/p/'+video.gsx$instagramurl.$t+'/embed/'" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
           </div>
           <div class="media-info-wrapper">
             <h1>{{video.gsx$videotitle.$t}}</h1>
@@ -266,10 +267,15 @@ margin-bottom:60px;
     padding-top: 15px;
 }
 
-twitter-widget#twitter-widget-0 {
+iframe.shortinstagram {
+    height: 480px;
+}
+
+twitter-widget {
     width: 100%;
     margin: 0 auto;
 }
+
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -340,6 +346,10 @@ twitter-widget#twitter-widget-0 {
 .instagram-item iframe {
     height: 570px;
     width: 90%;
+}
+
+iframe.shortinstagram {
+    height: 400px;
 }
 
 .igtv-item iframe {

@@ -1,8 +1,11 @@
 <template>
-  <div class="hello">
+  <nav class="main-nav">
   <img alt="From The River Films Logo" src="../assets/river-logo.png">
-
-  </div>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">Films</router-link> |
+      <router-link to="/engaging">Engaging</router-link> |
+      <router-link to="/contact">Contact</router-link>
+  </nav>
 </template>
 
 <script>
@@ -16,18 +19,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+nav.main-nav {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    color:#000;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:15px 5px;
+    z-index: 3;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+nav.main-nav > a {
+    flex: 1;
+    max-width: 160px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 18px;
+    color:#000;
+    text-decoration: none;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+@media (max-width:767px) {
+  nav.main-nav > img {
+    max-width: 50px;
 }
-a {
-  color: #42b983;
+
+nav.main-nav > a {
+    max-width: 100px;
+    font-size: 12px;
 }
+}
+
 </style>

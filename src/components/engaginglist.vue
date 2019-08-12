@@ -349,7 +349,7 @@ twitter-widget {
 }
 
 iframe.shortinstagram {
-    height: 400px;
+    height: 420px;
 }
 
 .igtv-item iframe {

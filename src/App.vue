@@ -2,13 +2,7 @@
   <div id="app" data-server-rendered="true">
   <mainnav></mainnav>
 
-    <h1>{{ msg }}</h1>
-    <p>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">Films</router-link> |
-      <router-link to="/engaging">Engaging</router-link> |
-      <router-link to="/contact">Contact</router-link>
-    </p>
+
     <router-view></router-view>
   </div>
 </template>
@@ -32,6 +26,7 @@ export default {
 body {
     background-color: #000;
     color:#fff;
+    margin:0px;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -39,7 +34,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  margin-top: 0px;
+  margin-top: 120px;
 
 }
 

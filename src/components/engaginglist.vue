@@ -127,7 +127,7 @@ setTimeout(function() {
     twitterEmbed.src = "https://platform.twitter.com/widgets.js"
     twitterEmbed.setAttribute('charset', 'utf-8')
     document.body.appendChild(twitterEmbed);
-}, 300)
+}, 1000)
 
 
 

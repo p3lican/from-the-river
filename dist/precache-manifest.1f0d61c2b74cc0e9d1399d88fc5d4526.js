@@ -4,11 +4,11 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors.5f9bace1.js"
   },
   {
-    "revision": "9ca7fe02a77fba1d4ba9",
-    "url": "/js/app.65827ed5.js"
+    "revision": "948870d4bcb96ca3b428",
+    "url": "/js/app.ab85a7b5.js"
   },
   {
-    "revision": "24ec47adfeba0afcd343d73242a16271",
+    "revision": "5917c368957e0f544109e72c86b68204",
     "url": "/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/img/river-logo.72ec810f.png"
   },
   {
-    "revision": "9ca7fe02a77fba1d4ba9",
-    "url": "/css/app.e46b59c1.css"
+    "revision": "948870d4bcb96ca3b428",
+    "url": "/css/app.2588051c.css"
   }
 ];

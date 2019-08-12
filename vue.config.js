@@ -10,6 +10,7 @@ module.exports = {
           '/',
           '/about',
           '/contact',
+          '/engaging',
         ],
         captureAfterElementExists: '.videolist-wrapper',
       }),

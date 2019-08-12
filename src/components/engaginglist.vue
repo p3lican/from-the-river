@@ -18,7 +18,20 @@
 
          <div v-else-if="video.gsx$videotype.$t=='instagram'" class="instagram-item">
          <div class="media-wrapper">
-            <iframe :src="'https://www.instagram.com/p/'+video.gsx$instagramurl.$t+'/embed/captioned'" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <iframe :src="'https://www.instagram.com/p/'+video.gsx$instagramurl.$t+'/embed/'" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="media-info-wrapper">
+            <h1>{{video.gsx$videotitle.$t}}</h1>
+            <p>{{video.gsx$videosummary.$t}}</p>
+          </div>
+
+
+         </div>
+
+
+         <div v-else-if="video.gsx$videotype.$t=='igtv'" class="igtv-item">
+         <div class="media-wrapper">
+            <iframe :src="'https://www.instagram.com/p/'+video.gsx$instagramurl.$t+'/embed/'" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
           </div>
           <div class="media-info-wrapper">
             <h1>{{video.gsx$videotitle.$t}}</h1>
@@ -194,7 +207,7 @@ setTimeout(function() {
 margin-bottom:60px;
 }
 
-.facebook-item, .instagram-item , .twitter-item  {
+.facebook-item, .instagram-item , .twitter-item, .igtv-item  {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,8 +230,18 @@ margin-bottom:60px;
 
 
 .instagram-item iframe {
-   height: 923px;
+   height: 700px;
     width: 600px;
+}
+
+.igtv-item iframe {
+    height: 720px;
+    width: 400px;
+}
+
+.instagram-item iframe {
+   height: 600px;
+    width: 400px;
 }
 
 .media-info-wrapper > h1 {
@@ -305,7 +328,7 @@ twitter-widget#twitter-widget-0 {
     order:2;
 }
 
-.facebook-item, .instagram-item, .twitter-item {
+.facebook-item, .instagram-item, .twitter-item, .igtv-item {
     flex-direction: column;
 }
 
@@ -315,8 +338,26 @@ twitter-widget#twitter-widget-0 {
 
 @media (max-width:767px) {
 .instagram-item iframe {
-    height: 740px;
+    height: 570px;
     width: 90%;
+}
+
+.igtv-item iframe {
+    height: 660px;
+    width: 90%;
+}
+
+.media-info-wrapper > h1 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 12px;
+}
+
+.media-info-wrapper > p {
+    font-size: 12px;
+    line-height: 16px;
+    padding-top: 8px;
+    margin-top: 6px;
 }
 
 .twitter-item > div {

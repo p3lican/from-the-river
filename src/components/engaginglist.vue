@@ -11,18 +11,35 @@
             </div>
           </div>
           <div class="media-info-wrapper">
-            info
+            <h1>{{video.gsx$videotitle.$t}}</h1>
+            <p>{{video.gsx$videosummary.$t}}</p>
           </div>
          </div> 
 
-         <div v-else-if="video.gsx$videotype.$t=='instagram'">
-<div v-html="video.gsx$instagramembedcode.$t"></div>
+         <div v-else-if="video.gsx$videotype.$t=='instagram'" class="instagram-item">
+         <div class="media-wrapper">
+            <iframe :src="'https://www.instagram.com/p/'+video.gsx$instagramurl.$t+'/embed/captioned'" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="media-info-wrapper">
+            <h1>{{video.gsx$videotitle.$t}}</h1>
+            <p>{{video.gsx$videosummary.$t}}</p>
+          </div>
+
 
          </div>
 
 
 
-         <div v-else="video.gsx$videotype.$t=='twitter'">twitter</div>
+         <div v-else="video.gsx$videotype.$t=='twitter'" class="twitter-item" >
+         <div class="media-wrapper">
+           <div v-html="video.gsx$twitterembedcode.$t"></div>
+          </div>
+         <div class="media-info-wrapper">
+            <h1>{{video.gsx$videotitle.$t}}</h1>
+            <p>{{video.gsx$videosummary.$t}}</p>
+          </div>
+
+         </div>
        </div>
      </div>
     </div>
@@ -95,11 +112,28 @@ export default {
       videoIframe.setAttribute('allowfullscreen', '');
 
 
+
+
+
       document.querySelector('.the-popup-video').appendChild(videoIframe);
     },
   },
 
   mounted() {
+
+setTimeout(function() {
+    const twitterEmbed = document.createElement('script');
+    twitterEmbed.setAttribute('async', '')
+    twitterEmbed.src = "https://platform.twitter.com/widgets.js"
+    twitterEmbed.setAttribute('charset', 'utf-8')
+    document.body.appendChild(twitterEmbed);
+}, 300)
+
+
+
+
+
+
     const cors = 'https://morning-hollows-40780.herokuapp.com/';
 
     this.loading = true;
@@ -156,10 +190,14 @@ export default {
   position:absolute;
 }
 
+.engaging-item {
+margin-bottom:60px;
+}
 
-
-.facebook-item {
+.facebook-item, .instagram-item , .twitter-item  {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .media-wrapper {
@@ -178,8 +216,37 @@ export default {
 
 
 
+.instagram-item iframe {
+   height: 923px;
+    width: 600px;
+}
 
+.media-info-wrapper > h1 {
+    font-family: 'Asset', cursive;
+    text-align: left;
+    font-size: 21px;
+    line-height: 28px;
+}
 
+.media-info-wrapper {
+    padding: 20px;
+}
+
+.media-info-wrapper > p {
+    text-align: left;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #a7a7a7;
+    border-top: 2px solid white;
+    padding-top: 15px;
+}
+
+twitter-widget#twitter-widget-0 {
+    width: 100%;
+    margin: 0 auto;
+}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -216,100 +283,54 @@ export default {
 
 
 @media (max-width:1750px) {
-.the-popup-video > iframe {
-    width: 1024px;
-    height: 575px;
-}
+
 }
 
 @media (max-width:1500px) {
 
-.popup-video-info-wrapper {
-    max-width: 1034px;
-}
-.popup-video-player-title {
-    font-size: 27px;
-    line-height: 36px;
-    margin-bottom: 10px;
-}
-.popup-video-player-teaser {
-    text-align: left;
-    font-size: 18px;
-    line-height:24px;
-    flex: 1;
-}
+
 
 }
 
 @media (max-width:1450px) {
-.the-popup-video > iframe {
-    width: 840px;
-    height: 480px;
-}
-.popup-video-info-wrapper {
-    max-width: 730px;
-    flex-direction: column;
-    background: white;
-    color: black;
-        overflow-y: scroll;
-}
+
 }
 
 
 @media (max-width:1279px) {
-  .the-popup-video {
-    background: black;
-}
 
-.the-popup-video > iframe {
-    width: 640px;
-    height: 380px;
-    margin: 0 auto;
-    display: block;
-}
-.popup-video-info-wrapper {
-    max-width: 650px;
-}
-
-  .the-popup-video-wrapper {
-    flex-direction: column;
-    background: white;
-    color: black;
-    }
-
-    .popup-video-close-top {
-    background: #000;
-}
-
-.popup-video-close-top > i {
-    color: #fff;
-}
-
-
-}
-
-@media (max-width:720px) {
-.the-popup-video > iframe {
+.media-wrapper {
     width: 100%;
-    height: 400px;
+    max-width: 760px;
+    order:2;
 }
-.popup-video-info-wrapper {
+
+.facebook-item, .instagram-item, .twitter-item {
+    flex-direction: column;
+}
+
+
+
+}
+
+@media (max-width:767px) {
+.instagram-item iframe {
+    height: 740px;
     width: 90%;
-    overflow-y: scroll;
+}
+
+.twitter-item > div {
+    height: 740px;
+    width: 90%;
+}
+.facebook-item > div {
+    height: 740px;
+    width: 90%;
 }
 }
 
 @media (max-width:550px) {
-  .the-popup-video {
-    padding:20px;
-  }
-.the-popup-video > iframe {
-    width: 100%;
-    height: 230px;
-}
-.popup-video-player-long-description {
-    padding-bottom: 60px;
-}
+
 }
 
 

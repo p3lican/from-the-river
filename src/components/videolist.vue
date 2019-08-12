@@ -255,7 +255,7 @@ export default {
     font-size: 15px;
     line-height:20px;
     margin-top: 16px;
-
+    overflow-y: scroll;
 
 }
 

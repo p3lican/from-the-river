@@ -6,13 +6,9 @@
 </div>
 
 
-<p class="tagline">I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan Filmmaker based in New Orleans. </p>
-<p class="tagline">I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan Filmmaker based in New Orleans. </p>
-<p class="tagline">I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan Filmmaker based in New Orleans. </p>
-<p class="tagline">I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan Filmmaker based in New Orleans. </p>
-<p class="tagline">I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan Filmmaker based in New Orleans. </p>
-<!--<p>My past clients include:
-Warner Bros.
+
+<h2 class="info-headline">My past clients include</h2>
+<p class="para">Warner Bros.
 MGM,
 A&E Networks,
 ESPN,
@@ -24,16 +20,34 @@ Deadspin,
 McCann Erickson
 Toshiba International</p>
 
-​Awards & Laurels:
-<p>Jalapeño Andretti - 2017 Cinema on the Bayou Film Festival, 2017 Azalea Film Festival</p>
-<p>The Death of Music  - Awarded Best Editing and Sound Design 2016 New Orleans 48 Hour Film Festival</p>
+<h2 class="info-headline">Awards & Laurels</h2>
+<p class="para">Jalapeño Andretti - 2017 Cinema on the Bayou Film Festival, 2017 Azalea Film Festival</p>
+<p class="para">The Death of Music  - Awarded Best Editing and Sound Design 2016 New Orleans 48 Hour Film Festival</p>
 
--->
   </div>
 </template>
 
 <style>
-
+.info-headline {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 3px 15px;
+    font-weight: 800;
+    margin: 0px;
+    background: #fff;
+    color: #000;
+    display: block;
+    margin-top: 30px;
+    max-width: 64%;
+    margin: 30px auto 0px auto;
+}
+.para {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size:15px;
+      line-height:20px;
+      padding:0px 15px;
+}
 .home-wrapper {
     background: #fff;
     background-image: url(/img/al-bg.aa7d418b.jpg);
@@ -48,6 +62,7 @@ Toshiba International</p>
   justify-content:flex-end;
    align-items: flex-end;
    padding-right:50px;
+   margin-bottom:30px;
 }
 
 .huge-name {
@@ -57,6 +72,7 @@ Toshiba International</p>
     line-height: 158px;
     width: 1440px;
     text-align: right;
+    margin-top:40px;
 }
 
 .tagline  {

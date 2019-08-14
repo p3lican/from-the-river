@@ -35,7 +35,7 @@ Toshiba International</p>
 <style>
 
 .home-wrapper {
-    background: red;
+    background: #fff;
     background-image: url(/img/al-bg.aa7d418b.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -123,6 +123,9 @@ Toshiba International</p>
     line-height: 20px;
     max-width: 243px;
     margin-right: 20px;
+}
+.home-wrapper {
+    background-position-x: 12%;
 }
 
 }

@@ -272,7 +272,7 @@ export default {
 ::-webkit-scrollbar-thumb {
   background: #e1e1e1;
   border: 0px none #ffffff;
-  border-radius: 50px;
+  border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff;

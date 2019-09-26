@@ -2,8 +2,9 @@
   <div id="app" data-server-rendered="true">
   <mainnav></mainnav>
 
-
+<keep-alive>
     <router-view></router-view>
+  </keep-alive>
   </div>
 </template>
 

@@ -2,7 +2,7 @@
   <nav class="main-nav">
   <img alt="From The River Films Logo" src="../assets/river-logo.png">
       <router-link to="/">About</router-link> |
-      <router-link to="/about">Films</router-link> |
+      <router-link to="/films">Films</router-link> |
       <router-link to="/engaging">Engaging</router-link> |
       <router-link to="/contact">Contact</router-link>
   </nav>
@@ -41,10 +41,11 @@ nav.main-nav > a {
     text-transform: uppercase;
     font-size: 18px;
     color:#000;
+    
     text-decoration: none;
 }
 a.router-link-exact-active.router-link-active {
-    color: #d86d61!important;
+    color: #CF142B!important;
 }
 
 @media (max-width:767px) {

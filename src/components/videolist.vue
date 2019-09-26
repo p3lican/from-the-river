@@ -5,15 +5,16 @@
 
     <div v-for="video in gs2Data">
     <img :alt="video.gsx$videotitle.$t" class="list-image" :src="'https://img.youtube.com/vi/'+video.gsx$videourl.$t+'/hqdefault.jpg'" @click="videoSelected(video.gsx$videotitle.$t, video.gsx$videocategory.$t, video.gsx$videodescription.$t, video.gsx$videourl.$t, video.gsx$videosummary.$t, video.gsx$videolongdescription.$t)"><br/>
-    {{video.gsx$videotitle.$t}}<br/>
-    {{video.gsx$videocategory.$t}}<br/><br/>
+    <h2 class="vid-title">{{video.gsx$videotitle.$t}}</h2>
+    <p class="vid-desc">{{video.gsx$videocategory.$t}}</p>
     </div>
 
     </div>
     <div class="the-popup-video-wrapper hidden">
     <div class="popup-video-close-top" aria-label="Close Video" @click="videoClosed"><i>CLOSE</i></div>
+      
       <div class="the-popup-video">
-
+        <div v-if="loading">loading...</div>
       </div>
       <div class="popup-video-info-wrapper">
         <div class="popup-video-player-title"></div>
@@ -163,10 +164,16 @@ export default {
   max-width:480px;
   margin: 0 auto;
   transition-duration: 280ms;
+  margin-bottom: -30px;
 
 }
 
-.list-image:hover {
+.all-videos-wrapper > div {
+  margin-bottom:20px;
+  padding:20px;
+}
+
+.all-videos-wrapper > div:hover {
     box-shadow: 0px 0px 0px 4px #fff;
     transition-duration: 280ms;
     cursor:pointer;
@@ -260,6 +267,14 @@ export default {
 
 }
 
+.vid-title {
+    font-size: 20px;
+    margin: 0px 5px;
+}
+.vid-desc {
+
+}
+
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -293,6 +308,7 @@ export default {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
 
 
 @media (max-width:1750px) {
@@ -377,6 +393,22 @@ export default {
     width: 90%;
     overflow-y: scroll;
 }
+.all-videos-wrapper {
+  padding: 30px;
+  padding-top:0px;
+}
+
+.popup-video-player-title {
+    font-size: 19px;
+    line-height: 19px;
+    margin-bottom: 6px;
+}
+.popup-video-player-category {
+    padding-top: 5px;
+    margin-bottom: 0px;
+
+}
+
 }
 
 @media (max-width:550px) {

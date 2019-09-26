@@ -15,7 +15,7 @@
 import videolist from '../components/videolist.vue';
 
 export default {
-  name: 'app',
+  name: 'films',
   components: { videolist },
   data() {
     return {

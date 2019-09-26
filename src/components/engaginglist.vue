@@ -2,8 +2,8 @@
   <div class="engaging-videos-wrapper">
     <div v-if="loading">loading</div>
     <div v-else class="all-engaging-videos-wrapper">
-     <div v-for="video in gs3Data"class="engaging-item">
-       <div>                                         
+     <div v-for="video in gs3Data" class="engaging-item">
+       <div>
          <div v-if="video.gsx$videotype.$t=='facebook'"  class="facebook-item">
           <div class="media-wrapper">
             <div class="test_fb_wrapper_responsive">
@@ -14,7 +14,7 @@
             <h1>{{video.gsx$videotitle.$t}}</h1>
             <p>{{video.gsx$videosummary.$t}}</p>
           </div>
-         </div> 
+         </div>
 
          <div v-else-if="video.gsx$videotype.$t=='instagram'" class="instagram-item">
          <div class="media-wrapper">
@@ -43,7 +43,6 @@
          </div>
 
 
-
          <div v-else="video.gsx$videotype.$t=='twitter'" class="twitter-item" >
          <div class="media-wrapper">
            <div v-html="video.gsx$twitterembedcode.$t"></div>
@@ -58,7 +57,9 @@
      </div>
     </div>
     <div class="the-popup-video-wrapper hidden">
-    <div class="popup-video-close-top" aria-label="Close Video" @click="videoClosed"><i>CLOSE</i></div>
+    <div class="popup-video-close-top" aria-label="Close Video" @click="videoClosed">
+    <i>CLOSE</i>
+    </div>
       <div class="the-popup-video">
 
       </div>
@@ -105,10 +106,10 @@ export default {
 
 
       const poopup = document.querySelector('div.the-popup-video-wrapper');
-      const popupVideoHolder = document.querySelector('div.the-popup-video');
+      // const popupVideoHolder = document.querySelector('div.the-popup-video');
       const popupTitle = document.querySelector('div.popup-video-player-title');
       popupTitle.innerHTML = videoTitle;
-      const popupTeaser = document.querySelector('div.popup-video-player-teaser');
+      // const popupTeaser = document.querySelector('div.popup-video-player-teaser');
       const popupSummary = document.querySelector('.popup-video-player-summary');
       const popupCat = document.querySelector('.popup-video-player-category');
       const popupLongDesc = document.querySelector('.popup-video-player-long-description');
@@ -126,26 +127,18 @@ export default {
       videoIframe.setAttribute('allowfullscreen', '');
 
 
-
-
-
       document.querySelector('.the-popup-video').appendChild(videoIframe);
     },
   },
 
   mounted() {
-
-setTimeout(function() {
-    const twitterEmbed = document.createElement('script');
-    twitterEmbed.setAttribute('async', '')
-    twitterEmbed.src = "https://platform.twitter.com/widgets.js"
-    twitterEmbed.setAttribute('charset', 'utf-8')
-    document.body.appendChild(twitterEmbed);
-}, 1000)
-
-
-
-
+    setTimeout(() => {
+      const twitterEmbed = document.createElement('script');
+      twitterEmbed.setAttribute('async', '');
+      twitterEmbed.src = 'https://platform.twitter.com/widgets.js';
+      twitterEmbed.setAttribute('charset', 'utf-8');
+      document.body.appendChild(twitterEmbed);
+    }, 1000);
 
 
     const cors = 'https://morning-hollows-40780.herokuapp.com/';
@@ -155,16 +148,12 @@ setTimeout(function() {
     const gs3 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/3/public/values?alt=json';
     const gs2 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/2/public/values?alt=json';
 
-
-    https:// docs.google.com/spreadsheets/d/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/edit#gid=0
-
     axios.all([
       axios.get(gs3),
       axios.get(gs2),
     ])
       .then(axios.spread((gs3Res, gs2Res) => {
         self.loading = false;
-
 
 
         self.gs3Data = gs3Res.data.feed.entry;
@@ -186,7 +175,6 @@ setTimeout(function() {
 .hidden {
   display:none!important;
 }
-
 
 
 .test_fb_wrapper_responsive {
@@ -227,7 +215,6 @@ margin-bottom:60px;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 
 .instagram-item iframe {
@@ -318,7 +305,6 @@ twitter-widget {
 @media (max-width:1500px) {
 
 
-
 }
 
 @media (max-width:1450px) {
@@ -337,7 +323,6 @@ twitter-widget {
 .facebook-item, .instagram-item, .twitter-item, .igtv-item {
     flex-direction: column;
 }
-
 
 
 }

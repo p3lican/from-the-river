@@ -16,7 +16,7 @@
 import engaginglist from '../components/engaginglist.vue';
 
 export default {
-  name: 'app',
+  name: 'engaging',
   components: { engaginglist },
   data() {
     return {

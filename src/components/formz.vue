@@ -1,29 +1,56 @@
 <template>
 
-<form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field"
->
+<form  name="contact" method="POST" data-netlify="true">
+<input type="hidden" name="contact" value="contact" />
   <p>
-    <label>Your Name: <input type="text" name="name" /></label>   
+    <label>
+      Your Name: <input type="text" name="name" v-model="form.name" />
+    </label>
   </p>
   <p>
-    <label>Your Email: <input type="email" name="email" /></label>
+    <label>
+      Your Email: <input type="email" name="email" v-model="form.email" />
+    </label>
   </p>
   <p>
-    <label>Message: <textarea name="message"></textarea></label>
+    <label>
+      Message: <textarea name="message" v-model="form.message" />
+    </label>
   </p>
   <p>
-    <button type="submit">Send</button>
+    <button type="submit" @click.prevent="handleSubmit">Send</button>
   </p>
 </form>
 </template>
+
 <script>
 export default {
-  name: "formz",
-  methods: {
-
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        message: '',
+      },
+    };
   },
-  data () {
-
-  }
-}
+  methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&');
+    },
+    handleSubmit() {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({ 'form-name': 'contact', ...this.form }),
+      })
+        .then(() => alert('Success!'))
+        .catch(error => alert(error));
+    },
+  },
+};
 </script>

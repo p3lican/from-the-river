@@ -26,7 +26,11 @@ export default {
     { 
       name: 'description',
       content: "I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan, New Orleans Filmmaker. My past clients include: Warner Bros. MGM, A&E Networks, ESPN, the New Orleans Saints, the New Orleans Pelicans, Bud Lite, SeatGeek, Deadspin, McCann Erickson & Toshiba International. Tell me about your project!"
-    }
+    },
+    {name:'og:title',content:'From the River Films | Alejandro de los Rios | New Orleans Filmmaker'},
+    {name:'og:type',content:'website'},
+    {name:'og:url',content:'http://www.fromtheriverfilms.com'},
+    {name:'og:image',content:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/500458/from-the-river-films-logo.jpg'}
   ]
   },
   components: { mainnav, animatedcity },

@@ -1,6 +1,6 @@
 <template>
-
-<form  name="contact" method="POST" data-netlify="true">
+<div class="form-wrapper">
+<form  class="the-form" sname="contact" method="POST" data-netlify="true">
 <input type="hidden" name="contact" value="contact" />
   <p>
     <label>
@@ -21,6 +21,10 @@
     <button type="submit" @click.prevent="handleSubmit">Send</button>
   </p>
 </form>
+<div class="thank-you-msg hidden">
+Thanks for your interest. I'll be in touch withing the next 72 hours.
+</div>
+</div>
 </template>
 
 <script>
@@ -48,7 +52,12 @@ export default {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: this.encode({ 'form-name': 'contact', ...this.form }),
       })
-        .then(() => alert('Success!'))
+        .then(() => {
+          const theForm = document.querySelector('.the-form')
+          var theThanks = document.querySelector('.thank-you-msg')
+          theForm.classList.add("hidden");
+          theThanks.classList.remove("hidden");
+          })
         .catch(error => alert(error));
     },
   },
@@ -56,6 +65,9 @@ export default {
 </script>
 
 <style>
+.hidden {
+  display:none;
+}
 form {
   width:90%;
   max-width:600px;

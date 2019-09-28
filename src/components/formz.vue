@@ -47,21 +47,28 @@ export default {
         .join('&');
     },
     handleSubmit() {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({ 'form-name': 'contact', ...this.form }),
-      })
-        .then(() => {
-          const theForm = document.querySelector('.the-form')
-          var theThanks = document.querySelector('.thank-you-msg')
-          theForm.classList.add("hidden");
-          theThanks.classList.remove("hidden");
+      var validationFailed = false;
+     // do your validation here ...
+       if (validationFailed) {
+         e.preventDefault();
+         return false;
+       } else {
+         fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: this.encode({ 'form-name': 'contact', ...this.form }),
           })
-        .catch(error => alert(error));
-    },
-  },
-};
+            .then(() => {
+              const theForm = document.querySelector('.the-form')
+              var theThanks = document.querySelector('.thank-you-msg')
+              theForm.classList.add("hidden");
+              theThanks.classList.remove("hidden");
+              })
+            .catch(error => alert(error));
+       }
+    }
+  }
+}
 </script>
 
 <style>

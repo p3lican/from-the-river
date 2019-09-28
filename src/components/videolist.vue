@@ -1,6 +1,10 @@
 <template>
   <div class="videolist-wrapper">
-    <div v-if="loading">loading</div>
+    <div v-if="loading">
+    <div class="box">
+      <div class="loader3"></div>
+    </div>
+    </div>
     <div v-else class="all-videos-wrapper">
 
     <div v-for="video in gs2Data">
@@ -12,6 +16,7 @@
     </div>
     <div class="the-popup-video-wrapper hidden">
     <div class="popup-video-close-top" aria-label="Close Video" @click="videoClosed"><i>CLOSE</i></div>
+    <div class="popup-video-close-left" aria-label="Close Video" @click="videoClosed"><i><</i></div>
 
       <div class="the-popup-video">
         <div v-if="loading">loading...</div>
@@ -95,7 +100,8 @@ export default {
     const gs2 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/2/public/values?alt=json';
 
 
-    https:// docs.google.com/spreadsheets/d/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/edit#gid=0
+    setTimeout(function() {
+
 
     axios.all([
       axios.get(latestAudio, { headers: { accessToken: 'internal|bb88df6b4c2244e78822812cecf1ee1b' } }),
@@ -119,8 +125,9 @@ export default {
         console.log(self.gs1Data, 'gs 1');
         console.log(self.gs2Data, 'gs 2');
       }));
-  },
-
+  
+   }, 2000)
+},
 
 };
 </script>
@@ -143,6 +150,22 @@ export default {
     border-radius: 0px;
     padding: 5px 10px;
         z-index: 4;
+}
+
+
+.popup-video-close-left {
+position: fixed;
+    bottom: 8px;
+    left: 8px;
+    z-index: 9;
+    cursor: pointer;
+    background: #000000;
+    color: #fff;
+    border-radius: 0px;
+    padding: 5px 10px;
+    z-index: 4;
+    font-weight: 800;
+    font-size: 24.2px;
 }
 
 .popup-video-close-top > i {

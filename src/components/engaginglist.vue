@@ -1,6 +1,10 @@
 <template>
   <div class="engaging-videos-wrapper">
-    <div v-if="loading">loading</div>
+    <div v-if="loading">
+      <div class="box">
+        <div class="loader3"></div>
+      </div>
+    </div>
     <div v-else class="all-engaging-videos-wrapper">
      <div v-for="video in gs3Data" class="engaging-item">
        <div>
@@ -148,6 +152,8 @@ export default {
     const gs3 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/3/public/values?alt=json';
     const gs2 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/2/public/values?alt=json';
 
+    setTimeout(function() {
+
     axios.all([
       axios.get(gs3),
       axios.get(gs2),
@@ -162,6 +168,7 @@ export default {
         console.log(self.gs3Data, 'gs 3');
         console.log(self.gs2Data, 'gs 2');
       }));
+    }, 2000)
   },
 
 

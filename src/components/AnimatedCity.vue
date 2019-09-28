@@ -2446,7 +2446,7 @@ position: fixed;
     left: 15%;
     max-width: 670px;
     top: 44%;
-    opacity: 0.5;
+    opacity: 0.15;
     z-index: -1;
 }
 @media (max-width:1680px) {

@@ -58,10 +58,13 @@
     margin: 30px auto 0px auto;
 }
 .para {
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size:15px;
-      line-height:20px;
-      padding:0px 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0px 15px;
+    max-width: 64%;
+    margin: 0 auto;
+    margin-top: 15px;
 }
 .home-wrapper {
     background-image: url(/img/al-bg.aa7d418b.jpg);

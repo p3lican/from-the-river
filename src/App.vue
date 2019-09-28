@@ -98,4 +98,11 @@ h2 {
     align-items: center;
 }
 
+@media (max-width:420px) {
+  h2 {
+      margin: 10px;
+      margin: 10px;
+      font-size: 20px;
+  }
+}
 </style>

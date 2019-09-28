@@ -1,9 +1,9 @@
 <template>
-<div class="videolist-wrapper">
+<div class="contact-wrapper">
   <div class="section-headline">
     <h2>Contact</h2>
   </div>
-  <a href="mailto:chamo.delosrios@gmail.com">chamo.delosrios@gmail.com</a>
+  <a class="email-text" href="mailto:chamo.delosrios@gmail.com">chamo.delosrios@gmail.com</a>
   <formz></formz>
   </div>
 </template>
@@ -18,3 +18,28 @@ export default {
   }
 }
 </script>
+
+<style>
+.contact-wrapper {
+  width:100%;
+}
+
+a.email-text {
+    font-size: 40px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: gold;
+    margin: 60px;
+    display: block;
+    margin-top: 0px;
+}
+
+@media (max-width:767px) {
+a.email-text {
+    font-size: 20px;
+    margin: 30px 10px;
+    margin-top: 0px;
+}
+}
+</style>

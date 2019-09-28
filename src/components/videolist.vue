@@ -12,7 +12,7 @@
     </div>
     <div class="the-popup-video-wrapper hidden">
     <div class="popup-video-close-top" aria-label="Close Video" @click="videoClosed"><i>CLOSE</i></div>
-      
+
       <div class="the-popup-video">
         <div v-if="loading">loading...</div>
       </div>
@@ -308,7 +308,6 @@ export default {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
-
 
 
 @media (max-width:1750px) {

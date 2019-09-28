@@ -30,9 +30,17 @@
 </div>
 
 
-
   </div>
 </template>
+<script>
+
+  export default {
+    metaInfo: {
+      // title will be injected into parent titleTemplate
+      title: 'About'
+    },
+  }
+</script>
 
 <style>
 .info-headline {
@@ -56,7 +64,6 @@
       padding:0px 15px;
 }
 .home-wrapper {
-    background: #000;
     background-image: url(/img/al-bg.aa7d418b.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -96,6 +103,7 @@
     max-width: 600px;
     text-align: right;
     flex-basis:50%;
+    color:#FFCC00;
 }
 
 @media (max-width:1440px) {
@@ -105,6 +113,7 @@
     line-height: 100px;
     width: 860px;
     margin:0px;
+    margin-top: 20px;
 }
 
 .tagline {
@@ -122,15 +131,12 @@
     margin-top: 60px;
 
 }
-
 .tagline {
     font-size: 22px;
     line-height: 29px;
     max-width: 427px;
 }
-
-
-  }
+}
 
 @media (max-width:767px) {
   .flex-wrap {
@@ -150,7 +156,6 @@
     line-height: 20px;
     max-width: 243px;
     margin-right: 20px;
-    color:#FFCC00;
 }
 .home-wrapper {
     background-position-x: 12%;
@@ -191,7 +196,6 @@
     margin-right: 15px;
 }
 }
-
 
 
 </style>

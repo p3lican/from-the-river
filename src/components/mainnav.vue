@@ -41,7 +41,7 @@ nav.main-nav > a {
     text-transform: uppercase;
     font-size: 18px;
     color:#000;
-    
+
     text-decoration: none;
 }
 a.router-link-exact-active.router-link-active {

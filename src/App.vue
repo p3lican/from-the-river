@@ -2,6 +2,8 @@
   <div id="app" data-server-rendered="true">
   <mainnav></mainnav>
 
+<animatedcity></animatedcity>
+
 <keep-alive>
     <router-view></router-view>
   </keep-alive>
@@ -10,10 +12,24 @@
 
 <script>
 import mainnav from './components/mainnav.vue';
+import animatedcity from './components/AnimatedCity.vue';
+
 
 export default {
   name: 'app',
-  components: { mainnav },
+  metaInfo: {
+  // if no subcomponents specify a metaInfo.title, this title will be used
+  title: 'Home',
+  // all titles will be injected into this template
+  titleTemplate: 'From the River Films | Alejandro de los Rios | New Orleans Filmmaker | %s',
+  meta: [
+    { 
+      name: 'description',
+      content: "I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan, New Orleans Filmmaker. My past clients include: Warner Bros. MGM, A&E Networks, ESPN, the New Orleans Saints, the New Orleans Pelicans, Bud Lite, SeatGeek, Deadspin, McCann Erickson & Toshiba International. Tell me about your project!"
+    }
+  ]
+  },
+  components: { mainnav, animatedcity },
   data() {
     return {
       msg: 'FROM THE RIVER FILMS',

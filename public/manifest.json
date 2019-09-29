@@ -1,6 +1,6 @@
 {
-  "name": "From The River Films",
-  "short_name": "FTR Films",
+  "name": "vue-cli-prerender",
+  "short_name": "vue-cli-prerender",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",

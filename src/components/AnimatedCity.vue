@@ -1,4 +1,5 @@
 <template>
+<!-- eslint-disable -->
 
 <div clas="overlay-wrapper">
   <div class="color-overlay"></div>

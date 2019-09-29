@@ -23,7 +23,8 @@
   </p>
 </form>
 <div class="thank-you-msg hidden">
-Thanks for your interest. I'll be in touch withing the next 72 hours.
+Thanks for your interest!<br>
+I'll be in touch within the next 72 hours.
 </div>
 </div>
 </template>
@@ -110,7 +111,7 @@ input {
     text-indent: 20px;
     background: black;
     color: gold;
-    border: 2px solid white;
+    border: 3px solid white;
     border-radius: 31px;
 }
 form button {
@@ -174,6 +175,11 @@ span.validation-message {
     transition-property: all;
     transition-duration: .5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.thank-you-msg {
+  font-weight:800;
+  font-size:24px;
+  line-height:32px;
 }
 
 .validation-message.hidden {

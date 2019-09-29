@@ -80,7 +80,7 @@ export default {
       poopup.classList.remove('hidden');
       console.log(videoURL, 'this video URL');
       const videoIframe = document.createElement('iframe');
-      videoIframe.src = `https://www.youtube.com/embed/${videoURL}`;
+      videoIframe.src = `https://www.youtube.com/embed/${videoURL}?rel=0`;
       videoIframe.ClassName = 'theVIDD';
       videoIframe.setAttribute('allowfullscreen', '');
 
@@ -151,20 +151,26 @@ export default {
 
 
 .popup-video-close-left {
-position: fixed;
+    position: fixed;
     bottom: 8px;
     left: 8px;
     z-index: 9;
     cursor: pointer;
     background: #000000;
     color: #fff;
-    border-radius: 0px;
-    padding: 5px 10px;
+    border-radius: 99px;
+    width: 50px;
+    height: 50px;
     z-index: 4;
+    height: 50px;
+    display: flex;
+    box-shadow: 0px 6px 47px -4px white;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
     font-weight: 800;
-    font-size: 24.2px;
+    padding-right: 2px;
 }
-
 .popup-video-close-top > i {
     color: black;
     font-size: 30px;

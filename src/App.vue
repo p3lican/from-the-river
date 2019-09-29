@@ -19,19 +19,19 @@ export default {
   name: 'app',
   metaInfo: {
   // if no subcomponents specify a metaInfo.title, this title will be used
-  title: 'Home',
-  // all titles will be injected into this template
-  titleTemplate: 'From the River Films | Alejandro de los Rios | New Orleans Filmmaker | %s',
-  meta: [
-    { 
-      name: 'description',
-      content: "I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan, New Orleans Filmmaker. My past clients include: Warner Bros. MGM, A&E Networks, ESPN, the New Orleans Saints, the New Orleans Pelicans, Bud Lite, SeatGeek, Deadspin, McCann Erickson & Toshiba International. Tell me about your project!"
-    },
-    {name:'og:title',content:'From the River Films | Alejandro de los Rios | New Orleans Filmmaker'},
-    {name:'og:type',content:'website'},
-    {name:'og:url',content:'http://www.fromtheriverfilms.com'},
-    {name:'og:image',content:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/500458/from-the-river-films-logo.jpg'}
-  ]
+    title: 'Home',
+    // all titles will be injected into this template
+    titleTemplate: 'From the River Films | Alejandro de los Rios | New Orleans Filmmaker | %s',
+    meta: [
+      {
+        name: 'description',
+        content: "I'm a just your typical Nicaraguan-born, Half-Cuban, Half-Venezuelan, New Orleans Filmmaker. My past clients include: Warner Bros. MGM, A&E Networks, ESPN, the New Orleans Saints, the New Orleans Pelicans, Bud Lite, SeatGeek, Deadspin, McCann Erickson & Toshiba International. Tell me about your project!",
+      },
+      { name: 'og:title', content: 'From the River Films | Alejandro de los Rios | New Orleans Filmmaker' },
+      { name: 'og:type', content: 'website' },
+      { name: 'og:url', content: 'http://www.fromtheriverfilms.com' },
+      { name: 'og:image', content: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/500458/from-the-river-films-logo.jpg' },
+    ],
   },
   components: { mainnav, animatedcity },
   data() {
@@ -146,7 +146,6 @@ h2 {
 }
 
 
-
 @-webkit-keyframes loader3{
     0%{width: 0px;}
     70%{width: 100%; opacity: 1;}
@@ -160,7 +159,6 @@ h2 {
     90%{opacity: 0; width: 100%;}
     100%{opacity: 0;width: 0px;}
 }
-
 
 
 @media (max-width:420px) {

@@ -17,9 +17,9 @@ import videolist from '../components/videolist.vue';
 export default {
   name: 'films',
   metaInfo: {
-      // title will be injected into parent titleTemplate
-      title: 'Films'
-    },
+    // title will be injected into parent titleTemplate
+    title: 'Films',
+  },
   components: { videolist },
   data() {
     return {

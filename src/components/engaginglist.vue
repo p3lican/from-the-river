@@ -152,23 +152,22 @@ export default {
     const gs3 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/3/public/values?alt=json';
     const gs2 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/2/public/values?alt=json';
 
-    setTimeout(function() {
+    setTimeout(() => {
+      axios.all([
+        axios.get(gs3),
+        axios.get(gs2),
+      ])
+        .then(axios.spread((gs3Res, gs2Res) => {
+          self.loading = false;
 
-    axios.all([
-      axios.get(gs3),
-      axios.get(gs2),
-    ])
-      .then(axios.spread((gs3Res, gs2Res) => {
-        self.loading = false;
 
+          self.gs3Data = gs3Res.data.feed.entry;
+          self.gs2Data = gs2Res.data.feed.entry;
 
-        self.gs3Data = gs3Res.data.feed.entry;
-        self.gs2Data = gs2Res.data.feed.entry;
-
-        console.log(self.gs3Data, 'gs 3');
-        console.log(self.gs2Data, 'gs 2');
-      }));
-    }, 2000)
+          console.log(self.gs3Data, 'gs 3');
+          console.log(self.gs2Data, 'gs 2');
+        }));
+    }, 2000);
   },
 
 

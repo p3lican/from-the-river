@@ -34,12 +34,12 @@
 </template>
 <script>
 
-  export default {
-    metaInfo: {
-      // title will be injected into parent titleTemplate
-      title: 'About'
-    },
-  }
+export default {
+  metaInfo: {
+    // title will be injected into parent titleTemplate
+    title: 'About',
+  },
+};
 </script>
 
 <style>

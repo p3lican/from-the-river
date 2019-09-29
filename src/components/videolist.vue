@@ -100,34 +100,31 @@ export default {
     const gs2 = 'https://spreadsheets.google.com/feeds/list/12znlSlIEnM59eZtVLZZtGGnarjwvE5fSd6UbXBxf8BI/2/public/values?alt=json';
 
 
-    setTimeout(function() {
+    setTimeout(() => {
+      axios.all([
+        axios.get(latestAudio, { headers: { accessToken: 'internal|bb88df6b4c2244e78822812cecf1ee1b' } }),
+        axios.get(latestPodcasts, { headers: { accessToken: 'internal|bb88df6b4c2244e78822812cecf1ee1b' } }),
+        axios.get(gs1),
+        axios.get(gs2),
+      ])
+        .then(axios.spread((latestAudioRes, latestPodcastsRes, gs1Res, gs2Res) => {
+          self.loading = false;
+
+          self.latestAudioData = latestAudioRes.data.response.result;
+          console.log(self.latestAudioData, 'Latest Audio');
+
+          self.latestPodcastsData = latestPodcastsRes.data.response.result;
+          console.log(self.latestPodcastsData, 'Latest Podcasts');
 
 
-    axios.all([
-      axios.get(latestAudio, { headers: { accessToken: 'internal|bb88df6b4c2244e78822812cecf1ee1b' } }),
-      axios.get(latestPodcasts, { headers: { accessToken: 'internal|bb88df6b4c2244e78822812cecf1ee1b' } }),
-      axios.get(gs1),
-      axios.get(gs2),
-    ])
-      .then(axios.spread((latestAudioRes, latestPodcastsRes, gs1Res, gs2Res) => {
-        self.loading = false;
+          self.gs1Data = gs1Res.data.feed.entry;
+          self.gs2Data = gs2Res.data.feed.entry;
 
-        self.latestAudioData = latestAudioRes.data.response.result;
-        console.log(self.latestAudioData, 'Latest Audio');
-
-        self.latestPodcastsData = latestPodcastsRes.data.response.result;
-        console.log(self.latestPodcastsData, 'Latest Podcasts');
-
-
-        self.gs1Data = gs1Res.data.feed.entry;
-        self.gs2Data = gs2Res.data.feed.entry;
-
-        console.log(self.gs1Data, 'gs 1');
-        console.log(self.gs2Data, 'gs 2');
-      }));
-  
-   }, 2000)
-},
+          console.log(self.gs1Data, 'gs 1');
+          console.log(self.gs2Data, 'gs 2');
+        }));
+    }, 2000);
+  },
 
 };
 </script>

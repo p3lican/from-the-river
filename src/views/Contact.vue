@@ -9,14 +9,15 @@
 </template>
 
 <script>
-import formz from '../components/formz.vue'
+import formz from '../components/formz.vue';
+
 export default {
-  components: {formz},
+  components: { formz },
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Contact'
-  }
-}
+    title: 'Contact',
+  },
+};
 </script>
 
 <style>

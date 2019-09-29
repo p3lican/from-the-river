@@ -19,7 +19,7 @@ export default {
   name: 'engaging',
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Engaging'
+    title: 'Engaging',
   },
   components: { engaginglist },
   data() {

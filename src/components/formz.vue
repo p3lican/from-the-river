@@ -42,51 +42,46 @@ export default {
   methods: {
     encode(data) {
       return Object.keys(data)
-        .map(
-          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-        )
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
         .join('&');
     },
     handleSubmit(event) {
-     
-     function emailIsValid (email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      function emailIsValid(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       }
 
-console.log(this.form.email, 'the email')
+      console.log(this.form.email, 'the email');
 
-var theEmail = emailIsValid (this.form.email)
+      const theEmail = emailIsValid(this.form.email);
 
-console.log(theEmail, 'the email after function')
-//      if (emailIsValid(this.form.email)==true) {
-//alert('true')
-//}
-      
+      console.log(theEmail, 'the email after function');
+      //      if (emailIsValid(this.form.email)==true) {
+      // alert('true')
+      // }
 
 
-       if (theEmail==false) {
-        var errorMsg = document.querySelector('.validation-message')
-        errorMsg.classList.remove("hidden");
-        errorMsg.classList.add("slideDown");
-         event.preventDefault();
-         return false;
-       } else {
-         fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: this.encode({ 'form-name': 'contact', ...this.form }),
-          })
-            .then(() => {
-              const theForm = document.querySelector('.the-form')
-              var theThanks = document.querySelector('.thank-you-msg')
-              theForm.classList.add("hidden");
-              theThanks.classList.remove("hidden");
-              })
-            .catch(error => alert(error));
-       }
-    }
-  }
-}
+      if (theEmail == false) {
+        const errorMsg = document.querySelector('.validation-message');
+        errorMsg.classList.remove('hidden');
+        errorMsg.classList.add('slideDown');
+        event.preventDefault();
+        return false;
+      }
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({ 'form-name': 'contact', ...this.form }),
+      })
+        .then(() => {
+          const theForm = document.querySelector('.the-form');
+          const theThanks = document.querySelector('.thank-you-msg');
+          theForm.classList.add('hidden');
+          theThanks.classList.remove('hidden');
+        })
+        .catch(error => alert(error));
+    },
+  },
+};
 </script>
 
 <style>
@@ -187,15 +182,15 @@ span.validation-message {
 
 .slideDown{
   animation-name: slideDown;
-  -webkit-animation-name: slideDown;  
+  -webkit-animation-name: slideDown;
 
-  animation-duration: 1s; 
+  animation-duration: 1s;
   -webkit-animation-duration: 1s;
 
-  animation-timing-function: ease;  
-  -webkit-animation-timing-function: ease;  
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
 
-  visibility: visible !important;           
+  visibility: visible !important;
 }
 
 @keyframes slideDown {
@@ -213,10 +208,10 @@ span.validation-message {
   }
   95%{
     transform: translateY(-2%);
-  }     
+  }
   100% {
     transform: translateY(0%);
-  }   
+  }
 }
 
 @-webkit-keyframes slideDown {
@@ -234,10 +229,10 @@ span.validation-message {
   }
   95%{
     -webkit-transform: translateY(-2%);
-  }     
+  }
   100% {
     -webkit-transform: translateY(0%);
-  } 
+  }
 }
 
 @media (max-width:600px) {

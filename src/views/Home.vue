@@ -67,7 +67,6 @@ export default {
     margin-top: 15px;
 }
 .home-wrapper {
-    background-image: url(/img/al-bg.aa7d418b.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

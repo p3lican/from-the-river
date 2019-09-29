@@ -31,6 +31,7 @@ export default {
       { name: 'og:type', content: 'website' },
       { name: 'og:url', content: 'http://www.fromtheriverfilms.com' },
       { name: 'og:image', content: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/500458/from-the-river-films-logo.jpg' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
   },
   components: { mainnav, animatedcity },

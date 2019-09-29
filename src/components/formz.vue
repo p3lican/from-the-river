@@ -11,6 +11,7 @@
     <label>
       Your Email: <input type="email" name="email" v-model="form.email" />
     </label>
+    <span class="validation-message hidden">Please enter a valid E-mail address</span>
   </p>
   <p>
     <label>
@@ -46,11 +47,28 @@ export default {
         )
         .join('&');
     },
-    handleSubmit() {
-      var validationFailed = false;
-     // do your validation here ...
-       if (validationFailed) {
-         e.preventDefault();
+    handleSubmit(event) {
+     
+     function emailIsValid (email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      }
+
+console.log(this.form.email, 'the email')
+
+var theEmail = emailIsValid (this.form.email)
+
+console.log(theEmail, 'the email after function')
+//      if (emailIsValid(this.form.email)==true) {
+//alert('true')
+//}
+      
+
+
+       if (theEmail==false) {
+        var errorMsg = document.querySelector('.validation-message')
+        errorMsg.classList.remove("hidden");
+        errorMsg.classList.add("slideDown");
+         event.preventDefault();
          return false;
        } else {
          fetch('/', {
@@ -132,6 +150,107 @@ min-height: 100px;
     text-indent: 0px;
     padding: 10px 30px;
 }
+
+span.validation-message {
+    color: #f50066;
+    font-weight: 800;
+    background: white;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 27px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    height: 35px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: -1;
+    top: 0px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.validation-message.hidden {
+  max-height: 0;
+}
+
+.slideDown{
+  animation-name: slideDown;
+  -webkit-animation-name: slideDown;  
+
+  animation-duration: 1s; 
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease;  
+
+  visibility: visible !important;           
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  50%{
+    transform: translateY(8%);
+  }
+  65%{
+    transform: translateY(-4%);
+  }
+  80%{
+    transform: translateY(4%);
+  }
+  95%{
+    transform: translateY(-2%);
+  }     
+  100% {
+    transform: translateY(0%);
+  }   
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+  }
+  50%{
+    -webkit-transform: translateY(8%);
+  }
+  65%{
+    -webkit-transform: translateY(-4%);
+  }
+  80%{
+    -webkit-transform: translateY(4%);
+  }
+  95%{
+    -webkit-transform: translateY(-2%);
+  }     
+  100% {
+    -webkit-transform: translateY(0%);
+  } 
+}
+
+@media (max-width:600px) {
+span.validation-message {
+    font-size: 11px;
+    font-weight: 400;
+    width: 79%;
+    border-radius: 0px;
+    height: 24px;
+    background: rgba(72, 72, 72, 0.78);
+}
+  }
+
 
 @media (max-width:400px) {
   label {

@@ -8,7 +8,6 @@ module.exports = {
         staticDir: path.join(__dirname, 'dist'),
         routes: [
           '/',
-          '/about',
           '/films',
           '/contact',
           '/engaging',

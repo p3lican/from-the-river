@@ -9,6 +9,7 @@ module.exports = {
         routes: [
           '/',
           '/about',
+          '/films',
           '/contact',
           '/engaging',
         ],

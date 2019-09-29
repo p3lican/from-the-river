@@ -1,5 +1,6 @@
 <template>
 <div class="engaging-wrapper">
+<h1 class="hidden">From the River Films - New Orleans Filmmaker Alejandro de los Rios</h1>
   <h2>ENGAGING</h2>
 
   <engaginglist>

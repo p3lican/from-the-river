@@ -1,5 +1,6 @@
 <template>
 <div class="contact-wrapper">
+<h1 class="hidden">From the River Films - New Orleans Filmmaker Alejandro de los Rios</h1>
   <div class="section-headline">
     <h2>Contact</h2>
   </div>

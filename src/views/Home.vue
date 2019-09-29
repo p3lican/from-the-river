@@ -1,5 +1,6 @@
 <template>
 <div class="home-wrapper">
+<h1 class="hidden">From the River Films - New Orleans Filmmaker Alejandro de los Rios</h1>
 <div class="flex-wrap">
   <p class="huge-name">Alejandro de los Rios</p>
   <div class="info-wrapper">

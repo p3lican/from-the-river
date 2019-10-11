@@ -2449,10 +2449,10 @@ svg  path {
 }
 
 img.text-logo {
-position: fixed;
-    left: 15%;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
     max-width: 670px;
-    top:  364px;
     opacity: 0.15;
     z-index: -1;
 }
@@ -2464,19 +2464,11 @@ position: fixed;
 
 }
 @media (max-width:1200px) {
-img.text-logo {
-    left: 120px;
-    max-width: 480px;
-    top: 140px;
-}
+
 }
 
 @media (max-width:1023px) {
-img.text-logo {
-    left: 120px;
-    max-width: 310px;
-    top: 100px;
-}
+
 }
 
 @media (max-width:767px) {
@@ -2485,10 +2477,6 @@ img.text-logo {
     position: relative;
     left: -50px;
 }
-img.text-logo {
-    left: 30px;
-    max-width: 230px;
-    top: 191px;
-}
+
 }
 </style>

@@ -3,6 +3,7 @@
 <h1 class="hidden">From the River Films - New Orleans Filmmaker Alejandro de los Rios</h1>
 <div class="flex-wrap">
   <p class="huge-name">Alejandro de los Rios</p>
+  <img class="al-image" alt="alejandro de los rios, from the river films" :src="require('../assets/alejandro-de-los-rios-from-the-river-films.jpg')">
   <div class="info-wrapper">
     <h2 class="info-headline">My past clients include</h2>
     <p class="para">Warner Bros.
@@ -81,7 +82,7 @@ export default {
   flex-wrap:wrap;
   justify-content:flex-end;
    align-items: flex-start;
-   padding-right:50px;
+   padding-right:0px;
    margin-bottom:30px;
 }
 
@@ -91,32 +92,41 @@ export default {
     font-size: 70px;
     line-height: 72px;
     width: 1440px;
-    text-align: right;
-    margin-top: 140px;
+    text-align: center;
+    margin-top: 70px;
     margin-bottom: 50px;
 }
 .info-wrapper {
   flex-basis:50%;
 }
-.tagline  {
+.tagline {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
     font-size: 28px;
     color: #fff;
     text-decoration: none;
-    max-width: 600px;
-    text-align: right;
-    flex-basis:50%;
-    color:#FFCC00;
+    max-width: 770px;
+    text-align: center;
+    flex-basis: 100%;
+    color: #FFCC00;
+    margin: 30px auto;
 }
+
+
+img.al-image {
+    max-width: 400px;
+    flex-basis: 60%;
+}
+
+
 
 @media (max-width:1440px) {
 
 
 .tagline {
-    font-size: 21px;
-    max-width: 400px;
+    font-size: 31px;
+    max-width: 800px;
 }
 }
 
@@ -133,9 +143,19 @@ export default {
     line-height: 29px;
     max-width: 427px;
 }
+img.al-image {
+    max-width: 300px;
+    flex-basis: 40%;
+}
 }
 
 @media (max-width:767px) {
+img.al-image {
+    max-width: 150px;
+    flex-basis: 60%;
+}
+
+
   .flex-wrap {
     padding-right: 0px;
 }
@@ -150,9 +170,11 @@ export default {
 }
 
 .tagline {
-    font-size: 15px;
-    line-height: 20px;
-    max-width: 243px;
+    font-size: 17px;
+    line-height: 23px;
+    max-width: 176px;
+    margin: 0px;
+    margin-left: 20px;
     margin-right: 20px;
 }
 .home-wrapper {
@@ -169,9 +191,10 @@ export default {
 
 @media (max-width:420px) {
 .huge-name {
-    font-size: 26px;
+    font-size: 29px;
     line-height: 34px;
-
+    max-width: 345px;
+    margin: 20px auto;
 }
 
 

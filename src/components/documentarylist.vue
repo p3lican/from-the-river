@@ -158,7 +158,7 @@ export default {
       twitterEmbed.src = 'https://platform.twitter.com/widgets.js';
       twitterEmbed.setAttribute('charset', 'utf-8');
       document.body.appendChild(twitterEmbed);
-    }, 1000);
+    }, 3000);
 
 
     const cors = 'https://morning-hollows-40780.herokuapp.com/';

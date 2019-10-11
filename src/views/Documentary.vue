@@ -17,7 +17,7 @@ export default {
   name: 'documentary',
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Engaging',
+    title: 'Documentary',
   },
   components: { documentarylist },
   data() {

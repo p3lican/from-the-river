@@ -2437,7 +2437,13 @@ export default {
     width: 100%;
     z-index: -2;
 }
-
+/*
+svg path {
+    stroke: #737373!important;
+    fill: white;
+    stroke-width: 2;
+}
+*/
 svg  path {
     stroke: white!important;
 }
@@ -2446,30 +2452,30 @@ img.text-logo {
 position: fixed;
     left: 15%;
     max-width: 670px;
-    top: 44%;
+    top:  364px;
     opacity: 0.15;
     z-index: -1;
 }
 @media (max-width:1680px) {
-img.text-logo {
-    left: 13%;
-    max-width: 560px;
-    top: 44%;
-}
+
 }
 
 @media (max-width:1440px) {
-img.text-logo {
-    left: 13%;
-    max-width: 560px;
-    top: 30%;
-}
+
 }
 @media (max-width:1200px) {
 img.text-logo {
-    left: 16%;
-    max-width: 320px;
-    top: 30%;
+    left: 120px;
+    max-width: 480px;
+    top: 140px;
+}
+}
+
+@media (max-width:1023px) {
+img.text-logo {
+    left: 120px;
+    max-width: 310px;
+    top: 100px;
 }
 }
 

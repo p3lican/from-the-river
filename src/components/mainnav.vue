@@ -2,8 +2,9 @@
   <nav class="main-nav">
   <img alt="From The River Films Logo" src="../assets/river-logo.png">
       <router-link to="/">About</router-link> <span>|</span>
-      <router-link to="/films">Films</router-link> <span>|</span>
-      <router-link to="/engaging">Engaging</router-link> <span>|</span>
+      <router-link to="/narrative">Narrative</router-link> <span>|</span>
+      <router-link to="/documentary">Documentary</router-link> <span>|</span>
+      <router-link to="/commercial">Commercial</router-link> <span>|</span>
       <router-link to="/contact">Contact</router-link>
   </nav>
 </template>
@@ -49,27 +50,44 @@ a.router-link-exact-active.router-link-active {
 }
 
 @media (max-width:767px) {
-  nav.main-nav[data-v-0194b1ea] {
+  nav.main-nav {
     padding: 10px 0px;
 }
   nav.main-nav > img {
-    max-width: 50px;
+    max-width: 40px;
 }
 
 nav.main-nav > a {
-    max-width: 65px;
+    max-width: 80px;
     font-size: 12px;
 }
 
 nav.main-nav > a:first-of-type {
-    max-width: 50px;
+    max-width: 40px;
     font-size: 12px;
 }
 nav.main-nav > a:nth-of-type(2) {
+    max-width: 62px;
+    font-size: 12px;
+}
+
+nav.main-nav > a:nth-of-type(4) {
+    max-width: 70px;
+    font-size: 12px;
+}
+nav.main-nav > a:nth-of-type(5) {
     max-width: 50px;
     font-size: 12px;
 }
 
 }
+
+
+@media (max-width:400px) {
+nav.main-nav > img{
+    max-width: 32px;
+}
+}
+
 
 </style>

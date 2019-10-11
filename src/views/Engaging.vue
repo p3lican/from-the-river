@@ -3,10 +3,7 @@
 <h1 class="hidden">From the River Films - New Orleans Filmmaker Alejandro de los Rios</h1>
   <h2>ENGAGING</h2>
 
-  <engaginglist>
-
-
-  </engaginglist>
+  <engaginglist></engaginglist>
 
   </div>
 </template>

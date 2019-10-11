@@ -1,27 +1,25 @@
 <template>
-<div class="about-wrapper">
+<div class="documentary-wrapper">
 <h1 class="hidden">From the River Films - New Orleans Filmmaker Alejandro de los Rios</h1>
-  <h2>NARRATIVE</h2>
+  <h2>DOCUMENTARY</h2>
 
-  <videolist>
-
-
-  </videolist>
+  <documentarylist></documentarylist>
 
   </div>
 </template>
 
 
 <script>
-import videolist from '../components/videolist.vue';
+
+import documentarylist from '../components/documentarylist.vue';
 
 export default {
-  name: 'films',
+  name: 'documentary',
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Narrative',
+    title: 'Engaging',
   },
-  components: { videolist },
+  components: { documentarylist },
   data() {
     return {
 

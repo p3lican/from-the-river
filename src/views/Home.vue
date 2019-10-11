@@ -71,6 +71,8 @@ export default {
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 .flex-wrap {
@@ -86,11 +88,11 @@ export default {
 .huge-name {
     font-family: 'Asset', cursive;
     text-align: left;
-    font-size: 125px;
-    line-height: 158px;
+    font-size: 70px;
+    line-height: 72px;
     width: 1440px;
     text-align: right;
-    margin-top: 20px;
+    margin-top: 140px;
     margin-bottom: 50px;
 }
 .info-wrapper {
@@ -111,13 +113,6 @@ export default {
 
 @media (max-width:1440px) {
 
-  .huge-name {
-    font-size: 75px;
-    line-height: 100px;
-    width: 860px;
-    margin:0px;
-    margin-top: 20px;
-}
 
 .tagline {
     font-size: 21px;
@@ -128,11 +123,10 @@ export default {
 @media (max-width:1023px) {
 
 .huge-name {
-    font-size: 61px;
+    font-size: 57px;
     line-height: 70px;
     width: 720px;
     margin-top: 60px;
-
 }
 .tagline {
     font-size: 22px;
@@ -146,12 +140,13 @@ export default {
     padding-right: 0px;
 }
 .huge-name {
-    font-size: 29px;
-    line-height: 36px;
+    font-size: 26px;
+    line-height: 34px;
     width: 100%;
     max-width: 328px;
     margin-top: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .tagline {
@@ -174,7 +169,7 @@ export default {
 
 @media (max-width:420px) {
 .huge-name {
-    font-size: 30px;
+    font-size: 26px;
     line-height: 34px;
 
 }

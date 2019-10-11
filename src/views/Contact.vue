@@ -4,7 +4,6 @@
   <div class="section-headline">
     <h2>Contact</h2>
   </div>
-  <a class="email-text" href="mailto:chamo.delosrios@gmail.com">chamo.delosrios@gmail.com</a>
   <formz></formz>
   </div>
 </template>
